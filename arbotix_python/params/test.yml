@@ -1,0 +1,16 @@
+arbotix_controller_gui:
+  ros__parameters:
+    port: /dev/ttyUSB1
+    rate: 15
+
+    dynamixel_names: [head_pan_joint, head_tilt_joint]
+
+    dynamixels:
+      head_pan_joint:
+        id: 1
+        invert: true
+
+      head_tilt_joint:
+        id: 2
+        max_angle: 100
+        min_angle: -100

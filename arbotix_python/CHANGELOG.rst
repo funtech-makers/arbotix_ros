@@ -2,7 +2,7 @@
 Changelog for package arbotix_python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.10.0 (2014-07-14)
+2.0.0 (2014-07-14)
 -------------------
 * Set queue_size=5 on all publishers
 * Contributors: Jorge Santos

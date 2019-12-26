@@ -1,9 +1,10 @@
 <package>
   <name>arbotix</name>
-  <version>0.10.0</version>
+  <version>2.0.0</version>
   <description>ArbotiX Drivers</description>
+  <author>Ewen BRUN</author>
   <author>Michael Ferguson</author>
-  <maintainer email="mike@vanadiumlabs.com">Michael Ferguson</maintainer>
+  <maintainer email="ewen.brun@ecam.fr">Ewen BRUN</maintainer>
   <license>BSD</license>
   <url>http://ros.org/wiki/arbotix</url>
 
@@ -12,12 +13,9 @@
   <run_depend>arbotix_msgs</run_depend>
   <run_depend>arbotix_python</run_depend>
   <run_depend>arbotix_sensors</run_depend>
-  <run_depend>arbotix_controllers</run_depend>
   <run_depend>arbotix_firmware</run_depend>
 
   <export>
     <metapackage/>
   </export>
 </package>
-
-

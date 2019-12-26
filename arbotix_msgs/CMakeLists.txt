@@ -1,20 +1,45 @@
-cmake_minimum_required(VERSION 2.8.3)
+################################################################################
+# Set minimum required version of cmake, project name and compile options
+################################################################################
+cmake_minimum_required(VERSION 3.5)
 project(arbotix_msgs)
 
-find_package(catkin REQUIRED COMPONENTS message_generation std_msgs)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
 
-add_message_files(FILES
-                  Analog.msg
-                  Digital.msg
-                 )
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-add_service_files(FILES
-                  Enable.srv
-                  Relax.srv
-                  SetupChannel.srv
-                  SetSpeed.srv
-                 )
+################################################################################
+# Find ament packages and libraries for ament and system dependencies
+################################################################################
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
 
-generate_messages(DEPENDENCIES std_msgs)
 
-catkin_package(CATKIN_DEPENDS message_runtime std_msgs)
+################################################################################
+# Declare ROS messages, services and actions
+################################################################################
+set(msg_files
+  "msg/Analog.msg"
+  "msg/Digital.msg"
+)
+
+set(srv_files
+  "srv/Enable.srv"
+  "srv/Relax.srv"
+  "srv/SetSpeed.srv"
+  "srv/SetupChannel.srv"
+)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+  DEPENDENCIES std_msgs
+  ADD_LINTER_TESTS
+)
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()
